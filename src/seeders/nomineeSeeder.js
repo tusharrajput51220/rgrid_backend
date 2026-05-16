@@ -2,6 +2,7 @@ import Nominee from "../models/nominee.model.js";
 import { DEFAULT_NOMINEES } from "../utils/constants.js";
 
 const seedNominees = async () => {
+  console.log("🚀 Starting nominee seeding...");
   try {
     const existingCount = await Nominee.countDocuments();
 

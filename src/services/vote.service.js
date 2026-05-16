@@ -41,6 +41,7 @@ export const castVote = async (sessionId, nomineeId) => {
   });
 
   // emit socket
+  console.log("emitting socket update...");
   getIO().emit(SOCKET_EVENTS.VOTE_UPDATED, updatedResults);
 
   return nominee;

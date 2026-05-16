@@ -16,6 +16,14 @@ export const login = async (req, res, next) => {
   }
 };
 
+export const checkSession = async (req, res, next) => {
+  try {
+    return res.status(200).json(new ApiResponse(200, "Session valid"));
+  } catch (error) {
+    next(error);
+  }
+};
+
 // GET /api/v1/admin/dashboard
 export const getDashboard = async (req, res, next) => {
   try {
