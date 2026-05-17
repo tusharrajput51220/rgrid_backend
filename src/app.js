@@ -15,7 +15,7 @@ const app = express();
 */
 app.use(
   cors({
-    origin: env.CLIENT_URL,
+    origin: ["http://localhost:3000", "https://rgrid-frontend.vercel.app"],
     credentials: true,
   }),
 );

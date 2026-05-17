@@ -10,6 +10,8 @@ export const login = async (req, res, next) => {
 
     req.session.isAdmin = true;
 
+    console.log("LOGIN SESSION:", req.session);
+
     return res.status(200).json(new ApiResponse(200, "Admin login successful"));
   } catch (error) {
     next(error);
