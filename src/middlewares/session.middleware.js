@@ -1,16 +1,18 @@
 import session from "express-session";
 import env from "../config/env.js";
 
+const isProduction = env.NODE_ENV === "production";
+
 const sessionMiddleware = session({
   secret: env.SESSION_SECRET,
-
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
 
   cookie: {
-    maxAge: 24 * 60 * 60 * 1000, // 1 day
+    maxAge: 24 * 60 * 60 * 1000,
     httpOnly: true,
-    secure: false, // true in production with HTTPS
+    secure: isProduction,
+    sameSite: isProduction ? "none" : "lax",
   },
 });
 

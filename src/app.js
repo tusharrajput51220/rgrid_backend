@@ -28,6 +28,7 @@ app.use(morgan("dev"));
 /*
   session middleware
 */
+app.set("trust proxy", 1);
 app.use(sessionMiddleware);
 
 /*
