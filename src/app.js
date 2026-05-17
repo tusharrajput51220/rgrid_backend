@@ -30,6 +30,10 @@ app.use(morgan("dev"));
 */
 app.set("trust proxy", 1);
 app.use(sessionMiddleware);
+app.use((req, res, next) => {
+  console.log("COOKIE:", req.headers.cookie);
+  next();
+});
 
 /*
   health check
